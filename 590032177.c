@@ -18,7 +18,7 @@ struct Student
 struct Student students[MAX_STUDENTS];
 int studentCount = 0;
 
-/* Calculate CGPA of a student */
+/* Calculate CGPA */
 float calculateCGPA(struct Student s)
 {
     float sum = 0;
@@ -29,13 +29,13 @@ float calculateCGPA(struct Student s)
 
     for (i = 0; i < s.semester; i++)
     {
-        sum = sum + s.sgpa[i];
+        sum += s.sgpa[i];
     }
 
     return sum / s.semester;
 }
 
-/* Add a student */
+/* Add Student */
 void addStudent()
 {
     int i;
@@ -88,7 +88,7 @@ void addStudent()
     printf("\nStudent added successfully.\n");
 }
 
-/* Display one student */
+/* Display One Student */
 void displayStudent(struct Student s)
 {
     int i;
@@ -111,7 +111,7 @@ void displayStudent(struct Student s)
     printf("\nCGPA: %.2f\n", calculateCGPA(s));
 }
 
-/* Search student using SAP ID */
+/* Search Student */
 void searchStudent()
 {
     long long sap;
@@ -137,7 +137,7 @@ void searchStudent()
     }
 }
 
-/* Display all students */
+/* Display All Students */
 void displayAllStudents()
 {
     int i;
@@ -157,7 +157,7 @@ void displayAllStudents()
     }
 }
 
-/* Display CGPA of all students */
+/* Display CGPA */
 void displayCGPA()
 {
     int i;
@@ -178,7 +178,7 @@ void displayCGPA()
     }
 }
 
-/* Calculate average CGPA for each year */
+/* Average CGPA by Year */
 void averageCGPAByYear()
 {
     int year, i, count;
@@ -212,7 +212,45 @@ void averageCGPAByYear()
     }
 }
 
-/* Sort students by SAP ID */
+/* Delete Student */
+void deleteStudent()
+{
+    long long sap;
+    int i, j, found = 0;
+
+    if (studentCount == 0)
+    {
+        printf("\nNo student records available.\n");
+        return;
+    }
+
+    printf("\nEnter SAP ID of student to delete: ");
+    scanf("%lld", &sap);
+
+    for (i = 0; i < studentCount; i++)
+    {
+        if (students[i].sap_id == sap)
+        {
+            for (j = i; j < studentCount - 1; j++)
+            {
+                students[j] = students[j + 1];
+            }
+
+            studentCount--;
+            found = 1;
+
+            printf("\nStudent record deleted successfully.\n");
+            break;
+        }
+    }
+
+    if (found == 0)
+    {
+        printf("\nStudent not found.\n");
+    }
+}
+
+/* Sort by SAP ID */
 void sortBySAP()
 {
     int i, j;
@@ -235,7 +273,7 @@ void sortBySAP()
     displayAllStudents();
 }
 
-/* Sort students by name */
+/* Sort by Name */
 void sortByName()
 {
     int i, j;
@@ -258,6 +296,55 @@ void sortByName()
     displayAllStudents();
 }
 
+/* AI-Assisted Academic Advisor */
+void academicAdvisor()
+{
+    long long sap;
+    int i, found = 0;
+    float cgpa;
+
+    printf("\n===== AI-ASSISTED ACADEMIC ADVISOR =====\n");
+
+    printf("Enter SAP ID: ");
+    scanf("%lld", &sap);
+
+    for (i = 0; i < studentCount; i++)
+    {
+        if (students[i].sap_id == sap)
+        {
+            found = 1;
+            cgpa = calculateCGPA(students[i]);
+
+            printf("\nStudent: %s\n", students[i].name);
+            printf("CGPA: %.2f\n", cgpa);
+
+            if (cgpa >= 9.0)
+            {
+                printf("Advice: Excellent Performance - Maintain your current study pattern.\n");
+            }
+            else if (cgpa >= 7.5)
+            {
+                printf("Advice: Good Performance - Keep working consistently and aim higher.\n");
+            }
+            else if (cgpa >= 6.0)
+            {
+                printf("Advice: Needs Improvement - Focus more on subjects with lower SGPA.\n");
+            }
+            else
+            {
+                printf("Advice: Requires Immediate Attention - Improve your study plan and seek academic support.\n");
+            }
+
+            break;
+        }
+    }
+
+    if (found == 0)
+    {
+        printf("\nStudent not found.\n");
+    }
+}
+
 int main()
 {
     int choice;
@@ -270,10 +357,10 @@ int main()
         printf("3. Display All Students\n");
         printf("4. Display CGPA\n");
         printf("5. Average CGPA by Year\n");
-        printf("6. Sort by SAP ID\n");
-        printf("7. Sort by Name\n");
-        printf("8. Delete Student\n");
-        printf("9. Academic Advisor\n");
+        printf("6. Delete Student\n");
+        printf("7. Sort by SAP ID\n");
+        printf("8. Sort by Name\n");
+        printf("9. AI-Assisted Academic Advisor\n");
         printf("10. Exit\n");
 
         printf("\nEnter your choice: ");
@@ -302,19 +389,19 @@ int main()
                 break;
 
             case 6:
-                sortBySAP();
+                deleteStudent();
                 break;
 
             case 7:
-                sortByName();
+                sortBySAP();
                 break;
 
             case 8:
-                printf("\nDelete function will be added next.\n");
+                sortByName();
                 break;
 
             case 9:
-                printf("\nAcademic Advisor will be added next.\n");
+                academicAdvisor();
                 break;
 
             case 10:
