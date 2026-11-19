@@ -1,0 +1,85 @@
+===== STUDENT RECORD AND RESULT MANAGEMENT SYSTEM =====
+1. Add Student
+2. Search Student
+3. Display All Students
+4. Display CGPA
+5. Average CGPA by Year
+6. Delete Student
+7. Sort by SAP ID
+8. Sort by Name
+9. AI-Assisted Academic Advisor
+10. Exit
+
+===== ALL STUDENT RECORDS =====
+
+Student 1
+SAP ID: 590032177
+Roll No: 20
+Name: Tushar Pahuja
+Phone No: 9876543210
+Email ID: tushar@example.com
+Year: 1
+Current Semester: 1
+SGPA: 9.20
+CGPA: 9.20
+
+Student 2
+SAP ID: 590032180
+Roll No: 21
+Name: Rahul Sharma
+Phone No: 9876543211
+Email ID: rahul@example.com
+Year: 1
+Current Semester: 1
+SGPA: 8.10
+CGPA: 8.10
+
+Student 3
+SAP ID: 590032190
+Roll No: 22
+Name: Aman Verma
+Phone No: 9876543212
+Email ID: aman@example.com
+Year: 1
+Current Semester: 1
+SGPA: 6.80
+CGPA: 6.80
+
+Student 4
+SAP ID: 590032200
+Roll No: 23
+Name: Riya Singh
+Phone No: 9876543213
+Email ID: riya@example.com
+Year: 1
+Current Semester: 1
+SGPA: 5.50
+CGPA: 5.50
+
+Student 5
+SAP ID: 590032210
+Roll No: 24
+Name: Karan Gupta
+Phone No: 9876543214
+Email ID: karan@example.com
+Year: 1
+Current Semester: 1
+SGPA: 7.60
+CGPA: 7.60
+
+===== AI-ASSISTED ACADEMIC ADVISOR =====
+Student: Tushar Pahuja
+CGPA: 9.20
+Advice: Excellent Performance - Maintain your current study pattern.
+
+===== AI-ASSISTED ACADEMIC ADVISOR =====
+Student: Aman Verma
+CGPA: 6.80
+Advice: Needs Improvement - Focus more on subjects with lower SGPA.
+
+===== AI-ASSISTED ACADEMIC ADVISOR =====
+Student: Riya Singh
+CGPA: 5.50
+Advice: Requires Immediate Attention - Improve your study plan and seek academic support.
+
+Exiting program...
