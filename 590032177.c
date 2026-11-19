@@ -1,4 +1,8 @@
-#include <stdio.h>
+/*
+Name: Tushar Pahuja
+SAP ID: 590032177
+Batch No.: 20
+*/#include <stdio.h>
 #include <string.h>
 
 #define MAX_STUDENTS 100
